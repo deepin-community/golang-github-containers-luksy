@@ -1,5 +1,20 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-containers-luksy (0.0~git20240812.2e7307c+ds1-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream release
+  * Bump Standards-Version
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Reinhard Tartler <siretart@tauware.de>  Sun, 01 Sep 2024 20:00:51 -0400
+
+golang-github-containers-luksy (0.0~git20231017.6a3592c+ds1-1) unstable; urgency=medium
+
+  * Team Upload.
+  * New upstream version 0.0~git20231017.6a3592c+ds1
+  * Increase test timeout to 1h (Closes: #1054339)
+
+ -- Nilesh Patra <nilesh@debian.org>  Tue, 24 Oct 2023 18:48:54 +0530
+
+golang-github-containers-luksy (0.0~git20230912.6df88cb-1) unstable; urgency=medium
+
+  * Initial release (Closes: #1052532)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 23 Sep 2023 20:50:41 -0400
