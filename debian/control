@@ -1,15 +1,61 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-containers-luksy
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Reinhard Tartler <siretart@tauware.de>
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-aead-serpent-dev,
+               golang-github-google-uuid-dev,
+               golang-github-sirupsen-logrus-dev,
+               golang-github-spf13-cobra-dev (>= 1.7),
+               golang-github-stretchr-testify-dev,
+               golang-golang-x-crypto-dev
+Standards-Version: 4.7.0
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-containers-luksy
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-containers-luksy.git
+Homepage: https://github.com/containers/luksy
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/containers/luksy
 
-Package: template-repository
+Package: luksy
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Built-Using: ${misc:Built-Using}
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: offline encryption/decryption using LUKS formats (program)
+ luksy implements encryption and decryption using LUKSv1 and LUKSv2
+ formats. Think of it as a clunkier cousin of gzip/bzip2/xz that doesn't
+ actually produce smaller output than input, but it encrypts, and that's
+ nice.
+ .
+ The main goal is to be able to encrypt/decrypt without the Linux device
+ mapper.  Duplicating functions of cryptsetup that it can perform without
+ accessing the Linux device mapper is not a priority.
+ .
+ If you can cryptsetup, you should use that instead.
+
+Package: golang-github-containers-luksy-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: golang-github-aead-serpent-dev,
+         golang-github-google-uuid-dev,
+         golang-github-sirupsen-logrus-dev,
+         golang-github-spf13-cobra-dev (>= 1.7),
+         golang-github-stretchr-testify-dev,
+         golang-golang-x-crypto-dev,
+         ${misc:Depends}
+Description: offline encryption/decryption using LUKS formats (library)
+ luksy implements encryption and decryption using LUKSv1 and LUKSv2
+ formats. Think of it as a clunkier cousin of gzip/bzip2/xz that doesn't
+ actually produce smaller output than input, but it encrypts, and that's
+ nice.
+ .
+ The main goal is to be able to encrypt/decrypt without the Linux device
+ mapper.  Duplicating functions of cryptsetup that it can perform without
+ accessing the Linux device mapper is not a priority.
+ .
+ This package ships library source code intended for building depndant
+ software packages
